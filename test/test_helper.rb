@@ -15,18 +15,12 @@ module TestHelpers
     @task_manager ||= TaskManager.new(database)
   end
 
-  def create_three_tasks
-    task_manager.create({
-      :title       => "a title",
-      :description => "a description"
-      })
-    task_manager.create({
-      :title       => "another title",
-      :description => "another description"
-      })
-    task_manager.create({
-      :title       => "a third title",
-      :description => "a third description"
-      })
+  def create_tasks(num = 2)
+    num.times do |i|
+      task_manager.create({
+        :title => "Task Title #{i + 1}",
+        :description => "Task Description #{i + 1}"
+        })
+    end
   end
 end
