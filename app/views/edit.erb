@@ -1,0 +1,8 @@
+<form action="/tasks/<%= @task.id %>" method="post">
+  <p>Edit</p>
+  <!--the below hidden input overrides our post method to a put. HTML forms are
+   meant to create new content, this allows us to edit content-->
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="task[title]" value="<%= @task.title %>">
+  <input type="submit">
+</form>
